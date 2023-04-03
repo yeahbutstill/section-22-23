@@ -1,5 +1,6 @@
 package com.yeahbutstill.section2223.path;
 
+import com.yeahbutstill.section2223.domain.dao.Address;
 import com.yeahbutstill.section2223.domain.dao.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,11 @@ class ObjectOutputStreamTest {
         Person p1 = new Person();
         p1.setId(1L);
         p1.setName("Dani");
-        p1.setAddress("Depok");
+        Address address = new Address();
+        address.setStreet("123 Main Street");
+        address.setCity("Depok");
+        address.setCountry("Indonesia");
+        p1.setAddress(address);
         Path path = Path.of("dani.person");
 
         try (OutputStream stream = Files.newOutputStream(path);
@@ -37,7 +42,7 @@ class ObjectOutputStreamTest {
             Person p1 = (Person) objectInputStream.readObject();
             Assertions.assertEquals(1L, p1.getId());
             Assertions.assertEquals("Dani", p1.getName());
-            Assertions.assertEquals("Depok", p1.getAddress());
+            Assertions.assertEquals("Depok", p1.getAddress().getCity());
 
         } catch (IOException | ClassNotFoundException exception) {
             Assertions.fail(exception);

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,5 +21,6 @@ public class Person implements Serializable {
 
     private Long id;
     private String name;
-    private String address;
+    private List<String> hobbies;
+    private Address address;
 }
