@@ -116,4 +116,32 @@ class ObjectMapperTest {
         LOGGER.info(json);
     }
 
+    @Test
+    void testCreateObjectFromJson() throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = """
+                {
+                  "id": 1,
+                  "name": "Dani",
+                  "hobbies": [
+                    "Reading",
+                    "Coding",
+                    "Cooking"
+                  ],
+                  "address": {
+                    "city": "New York",
+                    "street": "123 Main Street",
+                    "country": "USA"
+                  }
+                }
+                """;
+        Person person = objectMapper.readValue(json, Person.class);
+        Assertions.assertNotNull(person);
+        Assertions.assertEquals(1L, person.getId());
+        Assertions.assertEquals("Dani", person.getName());
+        Assertions.assertEquals(List.of("Reading", "Coding", "Cooking"), person.getHobbies());
+        Assertions.assertEquals("New York", person.getAddress().getCity());
+        Assertions.assertEquals("Address(street=123 Main Street, city=New York, country=USA)", person.getAddress().toString());
+    }
+
 }
