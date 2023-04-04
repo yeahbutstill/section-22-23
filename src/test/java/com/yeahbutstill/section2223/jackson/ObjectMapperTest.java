@@ -102,7 +102,7 @@ class ObjectMapperTest {
         ObjectMapper objectMapper = new ObjectMapper();
         Person person = new Person();
         person.setId(1L);
-        person.setName("Dani");
+        person.setFirstName("Dani");
         person.setHobbies(List.of("Reading", "Coding", "Cooking"));
 
         Address address = new Address();
@@ -122,7 +122,7 @@ class ObjectMapperTest {
         String json = """
                 {
                   "id": 1,
-                  "name": "Dani",
+                  "firstName": "Dani",
                   "hobbies": [
                     "Reading",
                     "Coding",
@@ -138,7 +138,7 @@ class ObjectMapperTest {
         Person person = objectMapper.readValue(json, Person.class);
         Assertions.assertNotNull(person);
         Assertions.assertEquals(1L, person.getId());
-        Assertions.assertEquals("Dani", person.getName());
+        Assertions.assertEquals("Dani", person.getFirstName());
         Assertions.assertEquals(List.of("Reading", "Coding", "Cooking"), person.getHobbies());
         Assertions.assertEquals("New York", person.getAddress().getCity());
         Assertions.assertEquals("Address(street=123 Main Street, city=New York, country=USA)", person.getAddress().toString());

@@ -18,7 +18,7 @@ class SerializationInclusionTest {
         ObjectMapper objectMapper = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
         Person person = new Person();
         person.setId(1L);
-        person.setName("John");
+        person.setFirstName("John");
 
         String json = objectMapper.writeValueAsString(person);
         Assertions.assertNotNull(json);

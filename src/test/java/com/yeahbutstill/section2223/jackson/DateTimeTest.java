@@ -24,7 +24,9 @@ class DateTimeTest {
 
         Person person = new Person();
         person.setId(1L);
-        person.setName("Dani");
+        person.setFirstName("Dani");
+        person.setLastName("Setiawan");
+        person.setFullName("Dani Setiawan");
         person.setCreatedAt(new Date());
         person.setUpdatedAt(new Date());
 
@@ -43,7 +45,9 @@ class DateTimeTest {
 
         Person person = new Person();
         person.setId(1L);
-        person.setName("Dani");
+        person.setFirstName("Dani");
+        person.setLastName("Setiawan");
+        person.setFullName("Dani Setiawan");
         Address address = new Address();
         address.setStreet("123 Main Street");
         address.setCity("New York");

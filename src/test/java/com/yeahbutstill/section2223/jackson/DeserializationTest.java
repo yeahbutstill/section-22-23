@@ -25,7 +25,7 @@ class DeserializationTest {
         String json = """
                 {
                     "id": 1,
-                    "name": "John",
+                    "firstName": "John",
                     "address": {
                         "street": "123 Main Street",
                         "city": "New York"
@@ -43,7 +43,7 @@ class DeserializationTest {
         Person person = objectMapper.readValue(json, Person.class);
         Assertions.assertNotNull(person);
         Assertions.assertEquals(1L, person.getId());
-        Assertions.assertEquals("John", person.getName());
+        Assertions.assertEquals("John", person.getFirstName());
         Assertions.assertEquals("123 Main Street", person.getAddress().getStreet());
         Assertions.assertEquals("New York", person.getAddress().getCity());
         Assertions.assertEquals(List.of("Coding"), person.getHobbies());
@@ -56,7 +56,7 @@ class DeserializationTest {
 
         Person person = new Person();
         person.setId(1L);
-        person.setName("John");
+        person.setFirstName("John");
         person.setHobbies(List.of("Coding", "Reading"));
 
         Address address = new Address();

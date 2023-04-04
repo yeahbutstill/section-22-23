@@ -16,14 +16,14 @@ class MapperFeatureTest {
         String json = """
                 {
                     "ID": 1,
-                    "Name": "John"
+                    "firstName": "John"
                 }
                 """;
 
         Person person = objectMapper.readValue(json, Person.class);
         Assertions.assertNotNull(person);
         Assertions.assertEquals(1L, person.getId());
-        Assertions.assertEquals("John", person.getName());
+        Assertions.assertEquals("John", person.getFirstName());
     }
 
 }

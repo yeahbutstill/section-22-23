@@ -16,7 +16,7 @@ class ObjectOutputStreamTest {
 
         Person p1 = new Person();
         p1.setId(1L);
-        p1.setName("Dani");
+        p1.setFirstName("Dani");
         Address address = new Address();
         address.setStreet("123 Main Street");
         address.setCity("Depok");
@@ -41,7 +41,7 @@ class ObjectOutputStreamTest {
              ObjectInputStream objectInputStream = new ObjectInputStream(stream)) {
             Person p1 = (Person) objectInputStream.readObject();
             Assertions.assertEquals(1L, p1.getId());
-            Assertions.assertEquals("Dani", p1.getName());
+            Assertions.assertEquals("Dani", p1.getFirstName());
             Assertions.assertEquals("Depok", p1.getAddress().getCity());
 
         } catch (IOException | ClassNotFoundException exception) {
