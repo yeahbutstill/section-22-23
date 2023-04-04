@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -15,7 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Person implements Serializable {
 
-
     @Serial
     private static final long serialVersionUID = -51774598767120150L;
 
@@ -23,4 +23,7 @@ public class Person implements Serializable {
     private String name;
     private List<String> hobbies;
     private Address address;
+    private Date createdAt;
+    private Date updatedAt;
+
 }
